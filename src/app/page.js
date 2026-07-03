@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { registrarNewsletter, registrarContacto } from './acciones/arcanumActions';
 
 export default async function ArcanumLanding({ searchParams }) {
@@ -13,8 +14,17 @@ export default async function ArcanumLanding({ searchParams }) {
       
       <header className="border-b border-slate-900 sticky top-0 bg-white/80 backdrop-blur-md z-50">
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-          <div className=" inline-block text-2xl font-black tracking-widest text-green-600">
-            ARCANUM <span className="text-amber-900 font-light text-lg">COFFEE</span>
+          <div className="flex items-center gap-3 text-2xl font-black tracking-widest text-green-600">
+            <Image 
+              src="/images/logo-arcanum.png" 
+              alt="Icono Arcanum Coffee"
+              width={32}                  
+              height={32}                 
+              className="object-contain"
+            />
+            <div>
+              ARCANUM <span className="text-amber-900 font-light text-lg">COFFEE</span>
+            </div>
           </div>
           <Link href="/admin" className="border border-amber-900/30 hover:border-green-600 hover:text-green-600 text-amber-900 font-bold px-5 py-2 rounded-full text-sm transition-all">
             Dashboard Admin
@@ -22,7 +32,6 @@ export default async function ArcanumLanding({ searchParams }) {
         </div>
       </header>
 
-      {/* 2. HERO SECTION */}
       <section className="relative flex flex-col items-center justify-center text-center px-6 py-20 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-60 pointer-events-none"
@@ -41,7 +50,7 @@ export default async function ArcanumLanding({ searchParams }) {
         </div>
       </section>
     
-      {/* 3. FORMULARIO: NEWSLETTER */}
+      {/* Formulario Newsletter */}
       <section className="max-w-4xl mx-auto px-6 py-12 bg-amber-950/60 border border-slate-900 rounded-3xl my-8 text-center relative overflow-hidden">
         <h2 className="text-2xl font-bold text-white mb-2">Únete a la Alquimia Secreta</h2>
         <p className="text-white-400 text-sm mb-6 max-w-md mx-auto">
@@ -66,7 +75,7 @@ export default async function ArcanumLanding({ searchParams }) {
         </form>
       </section>
 
-      {/* 4. FORMULARIO: CONTACTO */}
+      {/*Formulario contacto */}
       <section className="max-w-2xl mx-auto px-6 py-16">
         <h2 className="text-3xl font-black text-center text-black mb-2">Escríbenos al Oráculo</h2>
         <p className="text-center text-black text-sm mb-8">¿Quieres eventos, franquicias o dudas sobre nuestros granos? Déjanos un mensaje.</p>

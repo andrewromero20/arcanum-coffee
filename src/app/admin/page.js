@@ -1,7 +1,7 @@
 import { prisma } from '@/lib/db';
 import Link from 'next/link';
-
-export const revalidate = 0; // Obliga a Next.js a traer datos frescos siempre
+import Image from 'next/image';
+export const revalidate = 0; // Obligar a Next.js a traer datos frescos siempre
 
 export default async function AdminDashboard({ searchParams }) {
   // 1. Obtener la clave ingresada desde la URL (?password=...)
@@ -44,10 +44,19 @@ export default async function AdminDashboard({ searchParams }) {
 
   return (
     <div className="bg-white text-slate-100 min-h-screen font-sans">
-      <header className="border-b border-white bg-slate-900/40 sticky top-0 backdrop-blur-md z-10">
+      <header className="border-b border-slate-900 bg-white/80 sticky top-0 backdrop-blur-md z-50">
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="text-xl font-black text-green-600 tracking-wider">
-            ARCANUM <span className="text-black font-light text-sm">| CONTROL INTERNO</span>
+          <div className="flex items-center gap-3 text-2xl font-black tracking-widest text-green-600">
+            <Image 
+              src="/images/logo-arcanum.png" 
+              alt="Icono Arcanum Coffee"
+              width={32}                  
+              height={32}                 
+              className="object-contain"
+            />
+            <div>
+              ARCANUM <span className="text-amber-900 font-light text-lg">COFFEE</span>
+            </div>
           </div>
           <Link href="/" className="text-xs text-white hover:text-green-600 transition-colors bg-amber-900 px-4 py-2 rounded-lg border border-slate-800">
             ← Volver a la Landing
