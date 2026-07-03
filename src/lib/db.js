@@ -1,0 +1,15 @@
+import { PrismaClient } from '../../prisma/generated/client'; 
+import { PrismaPg } from '@prisma/adapter-pg';
+import pg from 'pg';
+
+const globalForPrisma = global;
+
+// Usamos la variable de entorno de tu nuevo archivo .env
+const pool = new pg.Pool({ connectionString: process.env.DATABASE_URL });
+const adapter = new PrismaPg(pool);
+
+export const prisma = 
+  globalForPrisma.prisma || 
+  new PrismaClient({ adapter });
+
+if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;

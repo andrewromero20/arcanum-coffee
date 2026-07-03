@@ -1,0 +1,25 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"       
+  output   = "./generated/client"    
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model NewsLetter {
+  id       Int      @id @default(autoincrement())
+  email    String   @unique
+  creadoEn DateTime @default(now())
+}
+
+model Contacto {
+  id       Int      @id @default(autoincrement())
+  nombre   String
+  email    String
+  mensaje  String
+  creadoEn DateTime @default(now())
+}
